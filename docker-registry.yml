@@ -2,10 +2,10 @@ docker-registry:
   image: "registry:2.2"
   environment:
     - REGISTRY_STORAGE=s3
-    - REGISTRY_STORAGE_S3_ACCESSKEY=AKIAJTWYSQRU4XRHMUWA
+    - REGISTRY_STORAGE_S3_ACCESSKEY=XYZ
     - REGISTRY_STORAGE_S3_BUCKET=registry-blog
     - REGISTRY_STORAGE_S3_REGION=us-east-1
-    - REGISTRY_STORAGE_S3_SECRETKEY=6hfNoz6V/6k3v4Y5RkSC0po/cmIcqo5yPAE+/QJP
+    - REGISTRY_STORAGE_S3_SECRETKEY=XYZ
     - "stackengine:availability=per-host"
   ports:
     - "9001:5000/tcp"
