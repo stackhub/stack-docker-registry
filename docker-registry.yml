@@ -1,0 +1,22 @@
+docker-registry:
+  image: "registry:2.2"
+  environment:
+    - REGISTRY_STORAGE=s3
+    - REGISTRY_STORAGE_S3_ACCESSKEY=AKIAJTWYSQRU4XRHMUWA
+    - REGISTRY_STORAGE_S3_BUCKET=registry-blog
+    - REGISTRY_STORAGE_S3_REGION=us-east-1
+    - REGISTRY_STORAGE_S3_SECRETKEY=6hfNoz6V/6k3v4Y5RkSC0po/cmIcqo5yPAE+/QJP
+    - "stackengine:availability=per-host"
+  ports:
+    - "9001:5000/tcp"
+  restart: always
+registry-gui:
+  image: konradkleine/docker-registry-frontend
+  ports:
+    - "9002:80/tcp"
+  environment:
+    - ENV_MODE_BROWSE_ONLY=True
+    - ENV_DOCKER_REGISTRY_HOST=localhost
+    - ENV_DOCKER_REGISTRY_PORT=9001
+    - "stackengine:availability=per-host"
+  restart: alway
